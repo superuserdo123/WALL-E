@@ -1,0 +1,17 @@
+mqtt:
+  host: "tcp://localhost:1883"   # Connect to your local Mosquitto broker
+  topic: "sensors/#"            # Subscribe to MQTT topics of interest
+
+prometheus:
+  port: 9641                    # Expose metrics on this port for Prometheus
+
+mapping:
+  - topic: "sensors/temperature"
+    type: "gauge"
+    name: "sensor_temperature_celsius"
+    help: "Temperature data from sensors in Celsius."
+
+  - topic: "sensors/humidity"
+    type: "gauge"
+    name: "sensor_humidity_percentage"
+    help: "Humidity data from sensors in percentage."
