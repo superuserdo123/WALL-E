@@ -1,0 +1,16 @@
+mqtt:
+  host: "tcp://<MQTT-BROKER-IP>:1883"  # Replace with your MQTT broker's IP
+  topic: "sensors/#"                  # Replace with your MQTT topic(s)
+
+prometheus:
+  port: 9641                          # Port for Prometheus to scrape metrics
+
+mapping:
+  - topic: "sensors/temperature"
+    type: "gauge"
+    name: "sensor_temperature_celsius"
+    help: "Temperature reported by sensors in Celsius."
+  - topic: "sensors/humidity"
+    type: "gauge"
+    name: "sensor_humidity_percentage"
+    help: "Humidity reported by sensors in percentage."
