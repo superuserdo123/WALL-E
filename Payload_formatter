@@ -1,0 +1,11 @@
+function Decoder(bytes, port) {
+    var decoded = {};
+    var payload = String.fromCharCode.apply(null, bytes).split(';');
+
+    payload.forEach(function(pair) {
+        var [key, value] = pair.split(':');
+        decoded[key] = parseFloat(value);
+    });
+
+    return decoded;
+}
